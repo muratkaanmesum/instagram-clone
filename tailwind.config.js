@@ -33,5 +33,7 @@ module.exports = {
       "2xl": "1536px",
     },
   },
+  safelist: ["invisible", "hidden", "visible", "opacity-0", "opacity-100"],
+
   plugins: [],
 };

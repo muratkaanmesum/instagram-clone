@@ -31,7 +31,7 @@ const MoreTab = () => {
       className="w-48 h-14 rounded-3xl flex hover:bg-slate-50 cursor-pointer justify-start items-center mt-28 group relative"
     >
       <ul
-        className={`absolute h-auto bg-white bottom-14 w-56 shadow-lg ${open}`}
+        className={`absolute h-auto bg-white bottom-14 w-56 shadow-lg ${open} rounded-t-md p-1`}
       >
         <MoreSection
           iconPath="/icons8-settings.svg"

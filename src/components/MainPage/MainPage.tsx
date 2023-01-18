@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Stories from "./MainContent/Stories/Stories";
 import Navbar from "./Navbar/Navbar";
 
 const MainPage = () => {
@@ -8,70 +9,7 @@ const MainPage = () => {
       <div className="ml-56 h-screen">
         <div className="flex justify-center bg-slate-50">
           <div>
-            <div className="border-solid bg-white border w-auto p-4 rounded-md flex gap-6 mt-5">
-              <div className="flex items-center flex-col">
-                <div className="rounded-full border-solid border-black border flex items-center justify-center w-16">
-                  <Image
-                    src="/icons8-customer-48.png"
-                    className="object-cover w-10/12"
-                    alt={""}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="text-gray-400 font-thin mt-2 text-xs">Name</div>
-              </div>
-              <div className="flex items-center flex-col">
-                <div className="rounded-full border-solid border-black border flex items-center justify-center w-16">
-                  <Image
-                    src="/icons8-customer-48.png"
-                    className="object-cover w-10/12"
-                    alt={""}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="text-gray-400 font-thin mt-2 font text-xs">
-                  Name
-                </div>
-              </div>
-              <div className="flex items-center flex-col">
-                <div className="rounded-full border-solid border-black border flex items-center justify-center w-16">
-                  <Image
-                    src="/icons8-customer-48.png"
-                    className="object-cover w-10/12"
-                    alt={""}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="text-gray-400 font-thin mt-2 text-xs">Name</div>
-              </div>
-              <div className="flex items-center flex-col">
-                <div className="rounded-full border-solid border-black border flex items-center justify-center w-16">
-                  <Image
-                    src="/icons8-customer-48.png"
-                    className="object-cover w-10/12"
-                    alt={""}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="text-gray-400 font-thin mt-2 text-xs">Name</div>
-              </div>
-              <div className="flex items-center flex-col">
-                <div className="rounded-full border-solid border-black border flex items-center justify-center w-16">
-                  <Image
-                    src="/icons8-customer-48.png"
-                    className="object-cover w-10/12"
-                    alt={""}
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="text-gray-400 font-thin mt-2 text-xs">Name</div>
-              </div>
-            </div>
+            <Stories />
             <main>
               <div className="border-solid border-2 mt-5 rounded-md max-w-full">
                 <div className="flex justify-between items-center p-4">
