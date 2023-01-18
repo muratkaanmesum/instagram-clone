@@ -1,4 +1,4 @@
-import useNavbarHook from "@/Hooks/Navbar/NavbarHook";
+import useNavbarHook from "@/Hooks/Navbar/useNavbarHook";
 import Image from "next/image";
 import Link from "next/link";
 import { INavbarProps } from "./interfaces";
