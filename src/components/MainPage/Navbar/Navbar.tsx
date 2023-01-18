@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
       <div className="w-28 my-8 m-lg:hidden transition-all">
         <Image src="/insta_logo.png" alt="" fill={true} className="image" />
       </div>
-      <div className="w-16 my-8 lg:hidden transition-all">
+      <div className="w-6 my-8 lg:hidden transition-all">
         <Image
           src="/icons8-instagram.svg"
           alt=""
