@@ -1,3 +1,4 @@
+import useNavbarHook from "@/Hooks/Navbar/NavbarHook";
 import Image from "next/image";
 import Link from "next/link";
 import { INavbarProps } from "./interfaces";
@@ -23,9 +24,15 @@ const MoreSection: React.FC<INavbarProps> = (props: INavbarProps) => {
   );
 };
 const MoreTab = () => {
+  const { open, isOpen } = useNavbarHook();
   return (
-    <li className="w-48 h-14 rounded-3xl flex hover:bg-slate-50 cursor-pointer justify-start items-center mt-28 group relative">
-      <ul className="absolute h-auto bg-white bottom-14 w-56 shadow-lg  ">
+    <li
+      onClick={isOpen}
+      className="w-48 h-14 rounded-3xl flex hover:bg-slate-50 cursor-pointer justify-start items-center mt-28 group relative"
+    >
+      <ul
+        className={`absolute h-auto bg-white bottom-14 w-56 shadow-lg ${open}`}
+      >
         <MoreSection
           iconPath="/icons8-settings.svg"
           url="/Settings"
