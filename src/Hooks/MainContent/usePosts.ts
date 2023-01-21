@@ -16,6 +16,20 @@ const usePosts = (imageCount: number) => {
             setImageIndex(imageCount - 1);
         }
     }
-    return { imageIndex, handleNextImage, handlePrevImage };
+    function hiddenArrows() {
+        if (imageCount === 1)
+            return { left: "invisible", right: "invisible" };
+        else if (imageIndex === 0 && imageCount > 1) {
+            return { left: "invisible", right: "visible" };
+        }
+        else if (imageIndex == imageCount - 1) {
+            return { left: "visible", right: "invisible" };
+        }
+        else if (imageCount > 0)
+            return { left: "visible", right: "visible" };
+        return { left: "invisible", right: "invisible" };
+
+    }
+    return { imageIndex, handleNextImage, handlePrevImage, hiddenArrows };
 };
 export default usePosts;

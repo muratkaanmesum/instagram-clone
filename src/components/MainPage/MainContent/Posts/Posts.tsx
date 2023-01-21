@@ -6,7 +6,7 @@ const tempPosts: IPost[] = [
     id: 1,
     username: "username",
     userImage: "/icons8-customer-48.png",
-    postImage: ["/temp.jpg", "/temp.jpg", "/temp.jpg"],
+    postImage: ["/temp.jpg"],
     location: "location",
     likes: 5,
     comments: 0,

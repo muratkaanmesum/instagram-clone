@@ -72,12 +72,67 @@ const InteractionBar: React.FC = () => {
     </div>
   );
 };
-
+const PostImages: React.FC<IPostProps> = (props: IPostProps) => {
+  const { postImage } = props.post;
+  const { imageIndex, handleNextImage, handlePrevImage, hiddenArrows } =
+    usePosts(postImage.length);
+  return (
+    <div className="relative overflow-hidden flex" style={{ width: 450 }}>
+      <ul className="flex">
+        {postImage.map((image, index) => {
+          return (
+            <li
+              key={index}
+              className="transition-all duration-300"
+              style={{
+                width: 450,
+                translate: imageIndex * -450,
+              }}
+            >
+              <Image
+                src={image}
+                priority
+                alt=""
+                className="image"
+                fill={true}
+              />
+            </li>
+          );
+        })}
+      </ul>
+      <div
+        className={`absolute bg-white p-2 rounded-full right-2 top-72 opacity-80 cursor-pointer ${
+          hiddenArrows().right
+        }`}
+      >
+        <Image
+          src="/arrow_right.svg"
+          alt=""
+          width={20}
+          height={20}
+          onClick={handleNextImage}
+        />
+      </div>
+      <div
+        className={`absolute bg-white p-2 rounded-full left-2 top-72 opacity-80 cursor-pointer ${
+          hiddenArrows().left
+        }`}
+      >
+        <Image
+          src="/arrow_left.svg"
+          className=""
+          alt=""
+          width={20}
+          height={20}
+          onClick={handlePrevImage}
+        />
+      </div>
+    </div>
+  );
+};
 const Post: React.FC<IPostProps> = (props: IPostProps) => {
   const { username, userImage, postImage, likes } = props.post;
-  const { imageIndex, handleNextImage, handlePrevImage } = usePosts(
-    postImage.length
-  );
+
   return (
     <div className="border-solid border-2 mt-5 rounded-md">
       <div className="flex justify-between items-center p-4">
@@ -97,44 +152,7 @@ const Post: React.FC<IPostProps> = (props: IPostProps) => {
           <Image src="/instagram-3dots.svg" alt="" width={50} height={50} />
         </div>
       </div>
-      <div className="relative overflow-hidden flex" style={{ width: 450 }}>
-        <ul className="flex">
-          {postImage.map((image, index) => {
-            return (
-              <li
-                key={index}
-                className="transition-all duration-300"
-                style={{
-                  width: 450,
-                  translate: imageIndex * -450,
-                }}
-              >
-                <Image src={image} alt="" className="image" fill={true} />
-              </li>
-            );
-          })}
-        </ul>
-        <div className="absolute bg-white p-2 rounded-full right-2 top-72 opacity-80 cursor-pointer">
-          <Image
-            src="/arrow_right.svg"
-            className=""
-            alt=""
-            width={20}
-            height={20}
-            onClick={handleNextImage}
-          />
-        </div>
-        <div className="absolute bg-white p-2 rounded-full left-2 top-72 opacity-80 cursor-pointer">
-          <Image
-            src="/arrow_left.svg"
-            className=""
-            alt=""
-            width={20}
-            height={20}
-            onClick={handlePrevImage}
-          />
-        </div>
-      </div>
+      <PostImages post={props.post} />
       <InteractionBar />
       <CommentBar post={props.post} />
     </div>
