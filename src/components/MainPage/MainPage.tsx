@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PostsSection from "./MainContent/Posts/PostsSection";
 import Stories from "./MainContent/Stories/Stories";
 import Navbar from "./Navbar/Navbar";
 
@@ -10,35 +11,7 @@ const MainPage = () => {
         <div className="flex justify-center bg-slate-50">
           <div>
             <Stories />
-            <main>
-              <div className="border-solid border-2 mt-5 rounded-md max-w-full">
-                <div className="flex justify-between items-center p-4">
-                  <div className="flex items-center">
-                    <div>
-                      <Image
-                        src="/icons8-customer-48.png"
-                        alt=""
-                        className="rounded-full w-8"
-                        width={50}
-                        height={50}
-                      />
-                    </div>
-                    <div className="text-xs">Username</div>
-                  </div>
-                  <div className="w-8">
-                    <Image
-                      src="/more_horiz_FILL0_wght400_GRAD0_opsz48.svg"
-                      alt=""
-                      width={50}
-                      height={50}
-                    />
-                  </div>
-                </div>
-                <div className="w-full max-w-md object-cover">
-                  <Image src="/temp.jpg" alt="" fill={true} className="image" />
-                </div>
-              </div>
-            </main>
+            <PostsSection />
           </div>
           <div className="flex flex-col w-1/4 ml-8 mt-20 gap-4 max-lg:bg-red-900 m-lg:hidden">
             <div className="flex justify-between items-center">
