@@ -1,13 +1,14 @@
+import React from "react";
+
 interface IPost {
     id: number;
     username: string;
     userImage: string;
-    postImage: string;
+    postImage: string[];
     location?: string;
     description: string;
     likes: number;
     comments: number;
-
 }
 
 interface IPostProps {

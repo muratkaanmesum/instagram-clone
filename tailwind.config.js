@@ -13,6 +13,8 @@ module.exports = {
       width: {
         96: "24rem",
         128: "32rem",
+        108: "28rem",
+        144: "36rem",
         "1/1": "100%",
       },
       fontFamily: {
