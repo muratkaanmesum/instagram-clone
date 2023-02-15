@@ -1,6 +1,11 @@
+import { LoginContext } from "@/Contexts/LoginContext";
 import Image from "next/image";
+import { useContext } from "react";
 import Suggestion from "./Suggestion";
 const UserProfile = () => {
+  const {user} = useContext(LoginContext);
+  console.log(user);
+  
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center justify-center">
