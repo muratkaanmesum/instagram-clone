@@ -3,9 +3,8 @@ import Image from "next/image";
 import { useContext } from "react";
 import Suggestion from "./Suggestion";
 const UserProfile = () => {
-  const {user} = useContext(LoginContext);
-  console.log(user);
-  
+  const { user } = useContext(LoginContext);
+
   return (
     <div className="flex justify-between items-center">
       <div className="flex items-center justify-center">
@@ -13,8 +12,10 @@ const UserProfile = () => {
           <Image src="/icons8-customer-48.png" alt="" width={50} height={50} />
         </div>
         <div>
-          <span className="font-medium block text text-xs">Username</span>
-          <span className="font-thin text-xs">Full name</span>
+          <span className="font-medium block text text-xs">
+            {user.username}
+          </span>
+          <span className="font-thin text-xs">{`${}`}</span>
         </div>
       </div>
       <div className="text-blue-500">Switch</div>

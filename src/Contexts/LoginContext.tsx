@@ -1,11 +1,12 @@
 import useLogin from "@/Hooks/LoginPage/useLogin";
+import { IUser } from "@/UserInterfaces";
 import React, { createContext, useEffect, useState } from "react";
 interface ILoginContext {
   error: boolean;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   login: () => void;
-  user: any;
+  user: IUser;
 }
 const LoginContext = createContext<ILoginContext>({} as ILoginContext);
 
