@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Suggestion from "./Suggestion";
 const UserProfile = () => {
   const { user } = useContext(LoginContext);
+  console.log(user);
 
   return (
     <div className="flex justify-between items-center">
@@ -15,7 +16,7 @@ const UserProfile = () => {
           <span className="font-medium block text text-xs">
             {user.username}
           </span>
-          <span className="font-thin text-xs">{`${}`}</span>
+          <span className="font-thin text-xs">{user.userProfile.fullName}</span>
         </div>
       </div>
       <div className="text-blue-500">Switch</div>
