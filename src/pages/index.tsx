@@ -1,7 +1,10 @@
+import { LoginContext } from "@/Contexts/LoginContext";
 import LoginPage from "@/components/LoginPage/LoginPage";
 import MainPage from "@/components/MainPage/MainPage";
+import { useContext } from "react";
 
-const index = () => {
-  return <LoginPage/>;
+const Index = () => {
+  const { user } = useContext(LoginContext);
+  return user ? <MainPage /> : <LoginPage />;
 };
-export default index;
+export default Index;

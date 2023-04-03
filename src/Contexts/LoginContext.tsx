@@ -5,14 +5,17 @@ interface ILoginContext {
   setPassword: React.Dispatch<React.SetStateAction<string>>;
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   login: () => void;
+  user: any;
 }
 const LoginContext = createContext<ILoginContext>({} as ILoginContext);
 
 const LoginProvider = ({ children }: React.PropsWithChildren) => {
-  const { error, setPassword, setUsername, login } = useLogin();
+  const { error, setPassword, setUsername, login, user } = useLogin();
 
   return (
-    <LoginContext.Provider value={{ error, setPassword, setUsername, login }}>
+    <LoginContext.Provider
+      value={{ error, setPassword, setUsername, login, user }}
+    >
       {children}
     </LoginContext.Provider>
   );
