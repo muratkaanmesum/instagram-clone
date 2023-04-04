@@ -1,7 +1,9 @@
+import usePosts from "@/Hooks/MainContent/usePosts";
+import useProfilePosts from "@/Hooks/ProfilePage/useProfilePosts";
 import { IPost } from "@/UserInterfaces";
 import Image from "next/image";
 interface IProfilePostsProps {
-  posts: IPost[];
+  id: number;
 }
 interface IPostProps {
   post: IPost;
@@ -28,7 +30,7 @@ const Post: React.FC<IPostProps> = ({ post }) => {
               alt=""
             />
           </div>
-          <span className="text-white font-medium">{}</span>
+          <span className="text-white font-medium">{likes.length}</span>
         </div>
         <div className="flex items-center justify-center gap-1">
           <div className="w-8">
@@ -39,13 +41,14 @@ const Post: React.FC<IPostProps> = ({ post }) => {
               alt=""
             />
           </div>
-          <span className="text-white font-medium">test</span>
+          <span className="text-white font-medium">{comments.length}</span>
         </div>
       </div>
     </div>
   );
 };
-const ProfilePosts: React.FC<IProfilePostsProps> = ({ posts }) => {
+const ProfilePosts: React.FC<IProfilePostsProps> = ({ id }) => {
+  const { posts } = useProfilePosts(id);
   return (
     <div className="mt-16">
       <div className="grid grid-cols-3 gap-2">

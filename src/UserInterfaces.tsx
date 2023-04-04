@@ -15,6 +15,7 @@ interface IPost {
   Date: Date;
 }
 interface IUserProfile {
+  id: number;
   fullName: string;
   email: string;
   bio: string;

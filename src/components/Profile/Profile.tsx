@@ -1,15 +1,22 @@
-import Image from "next/image";
 import ProfileHeader from "./ProfileHeader";
-import { useRouter } from "next/router";
 import useProfile from "@/Hooks/ProfilePage/useProfile";
 import ProfileTabs from "./ProfileTabs";
 import ProfilePosts from "./ProfilePosts";
-
+import { IUser } from "@/UserInterfaces";
+interface IProfileTabWrapper {
+  user: IUser;
+}
+const ProfileTabWrapper: React.FC<IProfileTabWrapper> = ({ user }) => {
+  return (
+    <>
+      <ProfilePosts id={user.userProfile.id} />
+    </>
+  );
+};
 const ProfilePage = () => {
   const { user, handleProfileTab, profileTab } = useProfile();
   if (!user) return <div>Loading</div>;
   if (!user.userProfile) return <div>Loading</div>;
-  if (!user.userProfile.posts) return <div>Loading</div>;
   return (
     <div className="h-full ml-64">
       <section className="h-full w-full">
@@ -19,7 +26,7 @@ const ProfilePage = () => {
             handleProfileTab={handleProfileTab}
             profileTab={profileTab}
           />
-          <ProfilePosts posts={user.userProfile.posts} />
+          <ProfileTabWrapper user={user} />
         </main>
       </section>
     </div>
