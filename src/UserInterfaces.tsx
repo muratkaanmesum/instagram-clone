@@ -31,4 +31,4 @@ interface IUser {
   password: string;
   userProfile: IUserProfile;
 }
-export type { IUser };
+export type { IUser, IPost };
