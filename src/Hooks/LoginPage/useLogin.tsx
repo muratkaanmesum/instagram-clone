@@ -1,3 +1,4 @@
+import { IUser } from "@/UserInterfaces";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -25,6 +26,16 @@ const useLogin = () => {
       setError(true);
     }
   }
-  return { username, password, error, setUsername, setPassword, login, user };
+
+  function SolveProfile(username: string) {}
+  return {
+    username,
+    password,
+    error,
+    setUsername,
+    setPassword,
+    login,
+    user,
+  };
 };
 export default useLogin;

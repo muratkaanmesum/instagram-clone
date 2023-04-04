@@ -20,7 +20,7 @@ interface IUserProfile {
   bio: string;
   gender: Gender;
   image: string;
-  Posts: IPost[];
+  posts: IPost[];
   comments: IComment[];
   followers: IUserProfile[];
   following: IUserProfile[];
