@@ -7,3 +7,10 @@
   height: 100%;
   position: unset !important;
 }
+html,
+body {
+  height: 100%;
+}
+#__next {
+  height: 100%;
+}

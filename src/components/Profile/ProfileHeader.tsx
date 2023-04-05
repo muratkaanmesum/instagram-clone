@@ -1,5 +1,6 @@
 import { IUser } from "@/UserInterfaces";
 import Image from "next/image";
+import Link from "next/link";
 interface IProfileProps {
   user: IUser;
 }
@@ -28,12 +29,12 @@ const ProfileInfo: React.FC<IProfileProps> = (props) => {
         <span>
           <span className="font-medium">{posts.length}</span> Post
         </span>
-        <span>
+        <Link href={`/${user.username}/Followers`}>
           <span className="font-medium">{followers.length}</span> followers
-        </span>
-        <span>
+        </Link>
+        <Link href={`/${user.username}/Following`}>
           <span className="font-medium">{following.length}</span> Following
-        </span>
+        </Link>
       </div>
       <span className="font-medium">{username}</span>
     </div>

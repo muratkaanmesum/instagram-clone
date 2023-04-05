@@ -1,8 +1,12 @@
 import Image from "next/image";
 import MoreTab from "./MoreTab";
 import NavbarItem from "./NavbarItem";
+import { useContext } from "react";
+import { LoginContext } from "@/Contexts/LoginContext";
 
 const Navbar: React.FC = () => {
+  const { user } = useContext(LoginContext);
+  if (!user) return null;
   return (
     <nav className="fixed h-full w-52 m-lg:w-10 m-5 mt-0 border-l-gray-900 border-r">
       <div className="w-28 my-8 m-lg:hidden transition-all">
@@ -36,7 +40,11 @@ const Navbar: React.FC = () => {
         />
         <NavbarItem iconPath="/icons8-favorite-30.png" header="Notifications" />
         <NavbarItem iconPath="/icons8-add-new-50.png" header="Create" />
-        <NavbarItem iconPath="/icons8-male-user-50.png" header="Profile" />
+        <NavbarItem
+          url={`/${user.username}`}
+          iconPath="/icons8-male-user-50.png"
+          header="Profile"
+        />
         <MoreTab />
       </ul>
     </nav>
