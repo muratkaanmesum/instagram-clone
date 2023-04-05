@@ -1,30 +1,13 @@
+import { LoginContext } from "@/Contexts/LoginContext";
+import useFollowers from "@/Hooks/LoginPage/useFollowers";
 import Image from "next/image";
-const FollowerItem = () => {
-  return (
-    <div className="flex justify-between p-3">
-      <div className="flex items-center gap-3">
-        <div className="w-12">
-          <Image
-            src="/temp.jpg"
-            alt=""
-            className="aspect-square object-cover rounded-full box-border image"
-            fill={true}
-          />
-        </div>
-        <div>
-          <span className="font-medium block">Username</span>
-          <span className="block"> Fullname</span>
-        </div>
-      </div>
-      <div>
-        <button className="bg-gray-200 hover:bg-gray-300 p-2 font-medium rounded-lg">
-          Remove
-        </button>
-      </div>
-    </div>
-  );
-};
+import { useContext } from "react";
+import Followers from "./Followers";
+
 const FollowerTab = () => {
+  const { user } = useContext(LoginContext);
+  if (!user) return <div>Loading</div>;
+  if (!user.userProfile) return <div>Loading</div>;
   return (
     <div
       className="absolute w-96 bg-white z-20 rounded-2xl max-w-sm"
@@ -42,16 +25,7 @@ const FollowerTab = () => {
           />
         </button>
       </div>
-      <div className="overflow-y-auto overflow-hidden max-h-96">
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-        <FollowerItem />
-      </div>
+      <Followers user={user} />
     </div>
   );
 };

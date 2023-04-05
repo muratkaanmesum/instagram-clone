@@ -12,6 +12,7 @@ const useProfile = () => {
   useEffect(() => {
     async function getProfile() {
       if (!username) return;
+      if (window == undefined) return;
       const API_ROOT = "https://localhost:7023/api/User/getByUsername";
       try {
         const result = await axios.get(API_ROOT, {

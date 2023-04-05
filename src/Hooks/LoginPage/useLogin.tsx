@@ -27,7 +27,6 @@ const useLogin = () => {
     }
   }
 
-  function SolveProfile(username: string) {}
   return {
     username,
     password,
