@@ -1,12 +1,15 @@
 import useFollowers from "@/Hooks/LoginPage/useFollowers";
+import { IFollower, IUser } from "@/UserInterfaces";
 import Image from "next/image";
 interface FollowerItemProps {
   follower: IFollower;
 }
 
-const FollowerItem = ({ follower }) => {
-  console.log(follower);
-
+interface FollowersProps {
+  user: IUser;
+}
+const FollowerItem: React.FC<FollowerItemProps> = ({ follower }) => {
+  const { username, fullName } = follower;
   return (
     <div className="flex justify-between p-3">
       <div className="flex items-center gap-3">
@@ -19,8 +22,8 @@ const FollowerItem = ({ follower }) => {
           />
         </div>
         <div>
-          <span className="font-medium block">Username</span>
-          <span className="block"> Fullname</span>
+          <span className="font-medium block">{username}</span>
+          <span className="block"> {fullName}</span>
         </div>
       </div>
       <div>
@@ -31,8 +34,9 @@ const FollowerItem = ({ follower }) => {
     </div>
   );
 };
-const Followers = ({ user }) => {
-  const { followers } = useFollowers(user.userProfile.id);
+const Followers: React.FC<FollowersProps> = ({ user }) => {
+  const { userProfile } = user;
+  const { followers } = useFollowers(userProfile.id);
 
   return (
     <div className="overflow-y-auto overflow-hidden max-h-96">

@@ -1,10 +1,15 @@
 import ProfileHeader from "./ProfileHeader";
-import useProfile from "@/Hooks/ProfilePage/useProfile";
+import useProfile, { ProfileTab } from "@/Hooks/ProfilePage/useProfile";
 import ProfileTabs from "./ProfileTabs";
 import ProfilePosts from "./ProfilePosts";
 import { IUser } from "@/UserInterfaces";
 interface IProfileTabWrapper {
   user: IUser;
+}
+interface IProfilePageProps {
+  user: IUser;
+  handleProfileTab: (tab: ProfileTab) => void;
+  profileTab: ProfileTab;
 }
 const ProfileTabWrapper: React.FC<IProfileTabWrapper> = ({ user }) => {
   return (
@@ -13,8 +18,11 @@ const ProfileTabWrapper: React.FC<IProfileTabWrapper> = ({ user }) => {
     </>
   );
 };
-const ProfilePage = () => {
-  const { user, handleProfileTab, profileTab } = useProfile();
+const ProfilePage: React.FC<IProfilePageProps> = ({
+  user,
+  handleProfileTab,
+  profileTab,
+}) => {
   if (!user) return <div>Loading</div>;
   if (!user.userProfile) return <div>Loading</div>;
   return (

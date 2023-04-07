@@ -1,13 +1,12 @@
-import { LoginContext } from "@/Contexts/LoginContext";
-import useFollowers from "@/Hooks/LoginPage/useFollowers";
 import Image from "next/image";
-import { useContext } from "react";
 import Followers from "./Followers";
-
-const FollowerTab = () => {
-  const { user } = useContext(LoginContext);
+import { IUser } from "@/UserInterfaces";
+interface IFollowerTabProps {
+  user: IUser;
+}
+const FollowerTab: React.FC<IFollowerTabProps> = ({ user }) => {
   if (!user) return <div>Loading</div>;
-  if (!user.userProfile) return <div>Loading</div>;
+  if (!user.userProfile) return <div>Loading123</div>;
   return (
     <div
       className="absolute w-96 bg-white z-20 rounded-2xl max-w-sm"

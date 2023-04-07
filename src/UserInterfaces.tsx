@@ -14,6 +14,12 @@ interface IPost {
   user: IUserProfile;
   Date: Date;
 }
+interface IFollower {
+  id: number;
+  username: string;
+  fullName: string;
+  image: string;
+}
 interface IUserProfile {
   id: number;
   fullName: string;
@@ -32,4 +38,4 @@ interface IUser {
   password: string;
   userProfile: IUserProfile;
 }
-export type { IUser, IPost };
+export type { IUser, IPost, IFollower };

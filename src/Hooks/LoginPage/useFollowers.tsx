@@ -1,8 +1,9 @@
+import { IFollower } from "@/UserInterfaces";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useFollowers = (id: number) => {
-  const [followers, setFollowers] = useState([]);
+  const [followers, setFollowers] = useState<IFollower[]>([]);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     if (window == undefined) return;
