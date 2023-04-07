@@ -1,11 +1,8 @@
 import Image from "next/image";
-import Followers from "./Followers";
 import { IUser } from "@/UserInterfaces";
 import Link from "next/link";
-interface IFollowerTabProps {
-  user: IUser;
-}
-const FollowerTab: React.FC<IFollowerTabProps> = ({ user }) => {
+import Followings from "./Following";
+const FollowingTab: React.FC<{ user: IUser }> = ({ user }) => {
   if (!user) return <div>Loading</div>;
   if (!user.userProfile) return <div>Loading123</div>;
   return (
@@ -25,8 +22,8 @@ const FollowerTab: React.FC<IFollowerTabProps> = ({ user }) => {
           />
         </Link>
       </div>
-      <Followers user={user} />
+      <Followings user={user} />
     </div>
   );
 };
-export default FollowerTab;
+export default FollowingTab;
