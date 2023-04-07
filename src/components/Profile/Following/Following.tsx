@@ -1,4 +1,5 @@
-import useFollowers from "@/Hooks/LoginPage/useFollowers";
+import useFollowers from "@/Hooks/ProfilePage/useFollowers";
+import useFollowing from "@/Hooks/ProfilePage/useFollowing";
 import { IFollower, IUser } from "@/UserInterfaces";
 import Image from "next/image";
 interface FollowingItemProps {
@@ -36,12 +37,11 @@ const FollowerItem: React.FC<FollowingItemProps> = ({ follower }) => {
 };
 const Followings: React.FC<FollowingProps> = ({ user }) => {
   const { userProfile } = user;
-  const { followers } = useFollowers(userProfile.id);
-
+  const { following } = useFollowing(userProfile.id);
   return (
     <div className="overflow-y-auto overflow-hidden max-h-96">
-      {followers.map((follower, index) => {
-        return <FollowerItem follower={follower} key={index} />;
+      {following.map((following, index) => {
+        return <FollowerItem follower={following} key={index} />;
       })}
     </div>
   );

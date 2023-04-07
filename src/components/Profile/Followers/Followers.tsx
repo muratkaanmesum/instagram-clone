@@ -1,4 +1,4 @@
-import useFollowers from "@/Hooks/LoginPage/useFollowers";
+import useFollowers from "@/Hooks/ProfilePage/useFollowers";
 import { IFollower, IUser } from "@/UserInterfaces";
 import Image from "next/image";
 interface FollowerItemProps {

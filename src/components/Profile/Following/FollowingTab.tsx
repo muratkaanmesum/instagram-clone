@@ -12,7 +12,7 @@ const FollowingTab: React.FC<{ user: IUser }> = ({ user }) => {
     >
       <div className="flex items-center justify-between box-border p-3 border-y-0 border-b-2 border-t-0">
         <div></div>
-        <span className="font-medium">Followers</span>
+        <span className="font-medium">Following</span>
         <Link href={`/${user.username}`} className="w-7 cursor-pointer">
           <Image
             src="/FollowerClose.svg"

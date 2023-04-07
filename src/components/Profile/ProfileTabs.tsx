@@ -13,7 +13,7 @@ const ProfileTabs: React.FC<IProfileTabsProps> = ({
       <hr className="border border-gray-200 h-0 w-full mt-4" />
       <div
         className={`absolute flex items-center gap-1 ${
-          profileTab == "Posts" ? "border" : ""
+          profileTab == "Posts" ? "border" : "border border-t-transparent"
         } p-1 pt-4 border-x-0 border-b-0 cursor-pointer border-t-black`}
         style={{ left: "calc(50% - 200px)", top: "1px" }}
         onClick={() => handleProfileTab("Posts")}
@@ -25,7 +25,9 @@ const ProfileTabs: React.FC<IProfileTabsProps> = ({
       </div>
       <div
         className={`absolute flex items-center gap-1 ${
-          profileTab == "Saved" ? "border" : ""
+          profileTab == "Saved"
+            ? "border border-t-black"
+            : "border border-t-transparent"
         } p-1 pt-4 border-x-0 border-b-0 cursor-pointer border-t-black`}
         style={{ left: "calc(50% - 50px)", top: "1px" }}
         onClick={() => handleProfileTab("Saved")}
@@ -42,7 +44,7 @@ const ProfileTabs: React.FC<IProfileTabsProps> = ({
       </div>
       <div
         className={`absolute flex items-center gap-1 ${
-          profileTab == "Tagged" ? "border" : ""
+          profileTab == "Tagged" ? "border" : "border border-t-transparent"
         } p-1 pt-4 border-x-0 border-b-0 cursor-pointer border-t-black`}
         style={{ left: "calc(50% + 100px)", top: "1px" }}
         onClick={() => handleProfileTab("Tagged")}

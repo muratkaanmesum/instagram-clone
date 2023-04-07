@@ -44,9 +44,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         user: result.data,
       },
     };
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
   return {
     props: {
       user: { username: "Test" },
