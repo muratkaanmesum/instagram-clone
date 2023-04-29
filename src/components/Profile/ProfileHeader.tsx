@@ -13,9 +13,11 @@ const ProfileInfo: React.FC<IProfileProps> = (props) => {
     <div className="flex flex-col gap-5">
       <div className="flex gap-5 items-center">
         <span className="text-lg">{fullName}</span>
-        <button className="bg-gray-200 rounded-md hover:bg-gray-300 p-2 font-medium">
-          Edit Profile
-        </button>
+        <Link href={"/accounts/edit"}>
+          <button className="bg-gray-200 rounded-md hover:bg-gray-300 p-2 font-medium">
+            Edit Profile
+          </button>
+        </Link>
         <button className="w-8">
           <Image
             src="/icons8-settings.svg"

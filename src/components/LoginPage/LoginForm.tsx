@@ -84,7 +84,7 @@ const LoginForm = () => {
       </div>
       <div className="flex items-center justify-center border w-96 h-20 border-gray-200 mt-5">
         <p className="">
-          Don't have an account?
+          Don&apos;t have an account?
           <a className="text-blue-600 cursor-pointer">Sign up</a>
         </p>
       </div>

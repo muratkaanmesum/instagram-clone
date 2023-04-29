@@ -7,15 +7,15 @@ interface ILoginContext {
   setUsername: React.Dispatch<React.SetStateAction<string>>;
   login: () => void;
   user: IUser;
+  loading: boolean;
 }
 const LoginContext = createContext<ILoginContext>({} as ILoginContext);
 
 const LoginProvider = ({ children }: React.PropsWithChildren) => {
-  const { error, setPassword, setUsername, login, user } = useLogin();
-
+  const { error, setPassword, setUsername, login, user, loading } = useLogin();
   return (
     <LoginContext.Provider
-      value={{ error, setPassword, setUsername, login, user }}
+      value={{ error, setPassword, setUsername, login, user, loading }}
     >
       {children}
     </LoginContext.Provider>

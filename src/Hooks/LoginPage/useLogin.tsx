@@ -1,15 +1,22 @@
 import { IUser } from "@/UserInterfaces";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const useLogin = () => {
   const [user, setUser] = useState<any>(null);
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false);
-  const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    const storageStr = localStorage.getItem("user");
+    if (storageStr != null) {
+      const storageUser = JSON.parse(storageStr);
+      setUser(storageUser);
+      setLoading(false);
+    }
+  }, []);
   async function login() {
     const API_ROOT = "https://localhost:7023/api/User/login";
     const data = {
@@ -19,12 +26,13 @@ const useLogin = () => {
     try {
       const result = await axios.post(API_ROOT, data);
       result.data && setUser(result.data);
-      if (user) {
-        localStorage.setItem("user", JSON.stringify(user));
+      if (result.data != null) {
+        localStorage.setItem("user", JSON.stringify(result.data));
       }
     } catch (error) {
       setError(true);
     }
+    setLoading(false);
   }
 
   return {
@@ -35,6 +43,7 @@ const useLogin = () => {
     setPassword,
     login,
     user,
+    loading,
   };
 };
 export default useLogin;
